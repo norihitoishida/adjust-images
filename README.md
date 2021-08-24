@@ -11,6 +11,13 @@
 |---|---|---|
 |0.0.1|2021/08/24|公開|
 
+### 参考にさせていただいたサイト
+- [画像をドラッグ＆ドロップで登録してプレビュー表示](https://qiita.com/tonkatu_tanaka/items/77fd4300f543a4f9682d)
+- [CSSのグリッドレイアウトで簡単なレイアウトを作ってみよう](https://www.webopixel.net/html-css/1406.html)
+- [グリッドレイアウトの基本概念](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout)
+- [JPEGからPNGへのコンバーター](https://convertio.co/ja/jpeg-png/)
+- [input type="file" multiple で夢の複数ファイルをアップロード](https://kazumich.com/html5multiple.html)
+
 ### スペシャルサンクス
 - Contributorの皆様
 - 使ってくださった皆様
