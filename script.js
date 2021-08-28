@@ -1,4 +1,5 @@
 let n_drop=0; // ドロップ回数(idをユニークにするために用意)
+let uniqueid;
 
 function dragenter(e) {
     e.stopPropagation();
@@ -20,8 +21,9 @@ function drop(e) {
 function handleFiles(files) {
     n_drop++;
     let gallery = document.getElementById("imgGallery");
+
     for (let i = 0; i < files.length; i++) {
-        let uniqueid = `${n_drop}_${i}`;
+        uniqueid = `${n_drop}_${i}`;
 
         // コンテナ全体を作る
         let container = document.createElement("div");
@@ -41,7 +43,6 @@ function handleFiles(files) {
         img.file = file;
         
         // リサイズ
-        // let ratio = img.width / img.height;
         img.height = 140;
 
         // 貼り付け
@@ -73,6 +74,9 @@ function handleFiles(files) {
         delbutton.textContent = "クリア";
         settingbox.appendChild(delbutton);
 
+        delbutton.addEventListener("click", del);
+
+
         // コメント欄
         let commentbox = document.createElement("textarea");
         commentbox.className = "commentBox";
@@ -87,3 +91,12 @@ dropbox = document.getElementById("dropbox");
 dropbox.addEventListener("dragenter", dragenter);
 dropbox.addEventListener("dragover", dragover);
 dropbox.addEventListener("drop", drop);
+
+
+
+function del() {
+    uniqueid = this.id.slice(13,);
+    let delContainer = document.getElementById(`imgContainer_${uniqueid}`);
+    delContainer.remove();
+
+}
