@@ -23,15 +23,22 @@ function drop(e) {
 
 function handleFiles(files) {
     let gallery = document.getElementById("imgGallery");
-    alert(files.length);
     for (let i = 0; i < files.length; i++) {
         
         
         let container = document.createElement("div");
         container.id = "imgContainer";
-        container.innerText = `コンテナ No.${i+1}`;
         gallery.appendChild(container);
         
+        let preview = document.createElement("div");
+        preview.id = "imgPreview";
+        preview.innerText = "プレビュー";
+        container.appendChild(preview);
+
+        let setting = document.createElement("div");
+        setting.id = "settingBox";
+        setting.innerText = "設定";
+        container.appendChild(setting);
         /*
         let file = files[i];
         let img = document.createElement("img");

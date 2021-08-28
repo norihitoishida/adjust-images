@@ -18,7 +18,7 @@ hr {
 
 #dropbox {
     background-color: rgba(175, 175, 175, 0.4);
-    border: 2px dashed rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.7);
     margin: 6px 0;
     height: 100px;
     font-size: 16px;
@@ -29,14 +29,30 @@ hr {
 
 #imgGallery {
     background-color: rgba(175, 175, 175, 0.4);
-    border: 2px dashed rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.7);
     padding: 3px;
     display: grid;
 }
 
 #imgContainer {
-    background-color: rgba(130, 175, 255, 0.4);
-    border: 1px solid rgba(0, 0, 0, 0.7);
-    height: 100px;
+    background-color: rgba(130, 175, 255, 0.1);
+    border: 1px solid #000;
+    height: 150px;
     margin: 3px;
+    display: grid;
+    grid-template-columns: 200px 200px 1fr;
+}
+
+#imgPreview {
+    background-color: #fff;
+    border: 1px solid #000;
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+
+#settingBox {
+    background-color: #fff;
+    border: 1px solid #000;
+    grid-row: 1/2;
+    grid-column: 2/3;
 }
