@@ -16,7 +16,7 @@ hr {
     border-color: #000;
 }
 
-#dragDropArea {
+#dropbox {
     background-color: rgba(175, 175, 175, 0.4);
     border: 2px dashed rgba(0, 0, 0, 0.7);
     margin: 6px 0;
@@ -30,6 +30,13 @@ hr {
 #imgGallery {
     background-color: rgba(175, 175, 175, 0.4);
     border: 2px dashed rgba(0, 0, 0, 0.7);
-    padding: 0.2em;
+    padding: 3px;
     display: grid;
+}
+
+#imgContainer {
+    background-color: rgba(130, 175, 255, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.7);
+    height: 100px;
+    margin: 3px;
 }
