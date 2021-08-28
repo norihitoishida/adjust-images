@@ -39,15 +39,10 @@ function rotateRight() {
     let angle = Number(targetimg.name);
     angle = (angle + 90) % 360;
     targetimg.name = angle;
-
-    if (angle % 180 === 0) {
-        targetimg.height = 140;
-    } else {
-        let ratio = targetimg.width / targetimg.height;
-        targetimg.height = 140 / ratio;
-    }
-    
     targetimg.style.transform = `rotate(${angle}deg)`;
+
+    let targetcontainer = document.getElementById(`imgContainer_${uniqueid}`);
+    targetcontainer.height = Math.max(targetimg.height, targetimg.width);
 }
 
 function handleFiles(files) {
@@ -71,20 +66,34 @@ function handleFiles(files) {
 
         // imageを読み込み
         let img = document.createElement("img");
+        img.classList.add("obj");
         img.id = `img_${uniqueid}`;
         img.name = 0; //角度
         let file = files[i];
         img.file = file;
-        
-        // リサイズ
-        img.height = 140;
-
+                
         // 貼り付け
         preview.appendChild(img);
         let reader = new FileReader();
         reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
         reader.readAsDataURL(file);
         
+        setTimeout(resize,100);
+        
+        
+        // リサイズ
+        function resize() {
+            if (img.height > img.width) {
+                // 縦長
+                img.height = 140;
+            } else {
+                // 横長
+                img.width = 140;
+            }
+            container.height = img.height+10;
+        }
+        
+
         // 設定ボックス(回転・削除)
         let settingbox = document.createElement("div");
         settingbox.className = "settingBox";
