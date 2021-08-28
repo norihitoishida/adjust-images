@@ -46,7 +46,7 @@ hr {
 }
 
 #imgPreview {
-    background-color: #fff;
+    background-color: rgba(175, 175, 175, 0.4);
     border: 1px solid rgba(0, 0, 0, 0.5);
     grid-row: 1/2;
     grid-column: 1/2;
