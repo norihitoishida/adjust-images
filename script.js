@@ -40,9 +40,11 @@ function handleFiles(files) {
         settingbox.innerText = "設定";
         container.appendChild(settingbox);
 
-        let commentbox = document.createElement("input");
+        let commentbox = document.createElement("textarea");
         commentbox.id = "commentBox";
+        commentbox.placeholder = "コメント";
         container.appendChild(commentbox);
+        
         /*
         let file = files[i];
         let img = document.createElement("img");
