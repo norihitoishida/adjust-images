@@ -17,6 +17,7 @@
 - [グリッドレイアウトの基本概念](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout)
 - [JPEGからPNGへのコンバーター](https://convertio.co/ja/jpeg-png/)
 - [input type="file" multiple で夢の複数ファイルをアップロード](https://kazumich.com/html5multiple.html)
+- [ブラウザでローカル画像をリサイズしてアップロード](https://qiita.com/komakomako/items/8efd4184f6d7cf1363f2)
 
 ### スペシャルサンクス
 - Contributorの皆様
