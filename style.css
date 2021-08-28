@@ -39,6 +39,7 @@ hr {
     border: 1px solid rgba(0, 0, 0, 1);
     margin: 3px;
     padding: 3px;
+    height: 150px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
