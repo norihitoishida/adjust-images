@@ -18,6 +18,12 @@ function drop(e) {
     handleFiles(files);
 }
 
+function del() {
+    uniqueid = this.id.slice(13,);
+    let delContainer = document.getElementById(`imgContainer_${uniqueid}`);
+    delContainer.remove();
+}
+
 function handleFiles(files) {
     n_drop++;
     let gallery = document.getElementById("imgGallery");
@@ -91,12 +97,3 @@ dropbox = document.getElementById("dropbox");
 dropbox.addEventListener("dragenter", dragenter);
 dropbox.addEventListener("dragover", dragover);
 dropbox.addEventListener("drop", drop);
-
-
-
-function del() {
-    uniqueid = this.id.slice(13,);
-    let delContainer = document.getElementById(`imgContainer_${uniqueid}`);
-    delContainer.remove();
-
-}
