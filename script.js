@@ -40,6 +40,11 @@ function rotateRight() {
     let angle = Number(targetimg.name);
     angle = (angle + 90) % 360;
     targetimg.name = angle;
+    if (targetimg.width <= 140) {
+        ;
+    } else {
+        let ratio = targetimg.width / targetimg.height;
+    }
     // targetimg.width = 140;
     targetimg.style.transform = `rotate(${angle}deg)`;
 }
