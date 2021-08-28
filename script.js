@@ -53,8 +53,24 @@ function handleFiles(files) {
         // 設定ボックス(回転・削除)
         let settingbox = document.createElement("div");
         settingbox.id = "settingBox";
-        settingbox.innerText = "設定";
         container.appendChild(settingbox);
+
+        // 設定ボックスに回転ボタンを追加
+        let rotatebutton_left = document.createElement("button");
+        rotatebutton_left.id = "rotateButtonLeft";
+        rotatebutton_left.textContent = "左回転";
+        settingbox.appendChild(rotatebutton_left);
+
+        let rotatebutton_right = document.createElement("button");
+        rotatebutton_right.id = "rotateButtonRight";
+        rotatebutton_right.textContent = "右回転";
+        settingbox.appendChild(rotatebutton_right);
+
+        // 設定ボックスに削除ボタンを追加
+        let delbutton = document.createElement("button");
+        delbutton.id = "deleteButton";
+        delbutton.textContent = "画像クリア";
+        settingbox.appendChild(delbutton);
 
         // コメント欄
         let commentbox = document.createElement("textarea");
