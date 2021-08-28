@@ -4,16 +4,26 @@ let uniqueid;
 function dragenter(e) {
     e.stopPropagation();
     e.preventDefault();
+    dropbox.style.backgroundColor = "rgba(175, 175, 175, 0.8)";
 }
   
 function dragover(e) {
     e.stopPropagation();
     e.preventDefault();
+    
+}
+
+function dragleave(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    dropbox.style.backgroundColor = "rgba(175, 175, 175, 0.4)";
+    
 }
 
 function drop(e) {
     e.stopPropagation();
     e.preventDefault();
+    dropbox.style.backgroundColor = "rgba(175, 175, 175, 0.4)";
     const files = e.dataTransfer.files;  
     handleFiles(files);
 }
@@ -121,3 +131,4 @@ dropbox = document.getElementById("dropbox");
 dropbox.addEventListener("dragenter", dragenter);
 dropbox.addEventListener("dragover", dragover);
 dropbox.addEventListener("drop", drop);
+dropbox.addEventListener("dragleave", dragleave);
