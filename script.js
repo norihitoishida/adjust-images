@@ -35,10 +35,14 @@ function handleFiles(files) {
         preview.innerText = "プレビュー";
         container.appendChild(preview);
 
-        let setting = document.createElement("div");
-        setting.id = "settingBox";
-        setting.innerText = "設定";
-        container.appendChild(setting);
+        let settingbox = document.createElement("div");
+        settingbox.id = "settingBox";
+        settingbox.innerText = "設定";
+        container.appendChild(settingbox);
+
+        let commentbox = document.createElement("input");
+        commentbox.id = "commentBox";
+        container.appendChild(commentbox);
         /*
         let file = files[i];
         let img = document.createElement("img");
