@@ -1,8 +1,4 @@
-/*
-・アップした写真枚数分「imgContainer」を用意してグリッド配置
-・「imgContainer」には「サムネ」「回転ボタン」「ナンバリング」「説明フォーム」がある
-・「サムネ」をクリックしたら画像が拡大表示
-*/
+let n_drop=0; // ドロップ回数(idをユニークにするために用意)
 
 function dragenter(e) {
     e.stopPropagation();
@@ -22,17 +18,21 @@ function drop(e) {
 }
 
 function handleFiles(files) {
+    n_drop++;
     let gallery = document.getElementById("imgGallery");
     for (let i = 0; i < files.length; i++) {
-        
+        let uniqueid = `${n_drop}_${i}`;
+
         // コンテナ全体を作る
         let container = document.createElement("div");
-        container.id = "imgContainer";
+        container.className = "imgContainer";
+        container.id = `imgContainer_${uniqueid}`;
         gallery.appendChild(container);
         
         // プレビュー欄を作る
         let preview = document.createElement("div");
-        preview.id = "imgPreview";
+        preview.className = "imgPreview";
+        preview.id = `imgPreview_${uniqueid}`;
         container.appendChild(preview);
 
         // imageを読み込み
@@ -52,39 +52,37 @@ function handleFiles(files) {
         
         // 設定ボックス(回転・削除)
         let settingbox = document.createElement("div");
-        settingbox.id = "settingBox";
+        settingbox.className = "settingBox";
+        settingbox.id = `settingBox_${uniqueid}`;
         container.appendChild(settingbox);
 
         // 設定ボックスに回転ボタンを追加
         let rotatebutton_left = document.createElement("button");
-        rotatebutton_left.id = "rotateButtonLeft";
+        rotatebutton_left.id = `rotateButtonLeft_${uniqueid}`;
         rotatebutton_left.textContent = "左回転";
         settingbox.appendChild(rotatebutton_left);
 
         let rotatebutton_right = document.createElement("button");
-        rotatebutton_right.id = "rotateButtonRight";
+        rotatebutton_right.id = `rotateButtonRight_${uniqueid}`;
         rotatebutton_right.textContent = "右回転";
         settingbox.appendChild(rotatebutton_right);
 
         // 設定ボックスに削除ボタンを追加
         let delbutton = document.createElement("button");
-        delbutton.id = "deleteButton";
-        delbutton.textContent = "画像クリア";
+        delbutton.id = `deleteButton_${uniqueid}`;
+        delbutton.textContent = "クリア";
         settingbox.appendChild(delbutton);
 
         // コメント欄
         let commentbox = document.createElement("textarea");
-        commentbox.id = "commentBox";
+        commentbox.className = "commentBox";
+        commentbox.id = `commentBox_${uniqueid}`;
         commentbox.placeholder = "コメント";
         container.appendChild(commentbox);
     }
 }
 
-
-
-
 let dropbox;
-
 dropbox = document.getElementById("dropbox");
 dropbox.addEventListener("dragenter", dragenter);
 dropbox.addEventListener("dragover", dragover);
