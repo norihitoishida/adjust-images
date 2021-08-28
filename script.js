@@ -71,6 +71,7 @@ function handleFiles(files) {
         img.name = 0; //角度
         let file = files[i];
         img.file = file;
+        img.style.transform = "translateY(50%)";
                 
         // 貼り付け
         preview.appendChild(img);
@@ -78,21 +79,16 @@ function handleFiles(files) {
         reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
         reader.readAsDataURL(file);
         
-        setTimeout(resize,100);
-        
         
         // リサイズ
-        function resize() {
-            if (img.height > img.width) {
-                // 縦長
-                img.height = 140;
-            } else {
-                // 横長
-                img.width = 140;
-            }
-            container.height = img.height+10;
+        if (img.height > img.width) {
+            // 縦長
+            img.height = 140;
+        } else {
+            // 横長
+            img.width = 140;
         }
-        
+        container.height += 10;        
 
         // 設定ボックス(回転・削除)
         let settingbox = document.createElement("div");
