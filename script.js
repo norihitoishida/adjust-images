@@ -150,14 +150,37 @@ function popupImage() {
     
     let angle = Number(clickedImg.name);
     popUpImg.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
-    popUpImg.style.width = "100%";
-    popUpImg.style.height = "auto";
+    let popUpWidth = popup.getBoundingClientRect().width;
     let popUpHeight = popup.getBoundingClientRect().height;
-    let popUpImgHeight = popUpImg.getBoundingClientRect().height;
-    if (popUpImgHeight>popUpHeight){
-      popUpImg.style.width = "auto";
-      popUpImg.style.height = "100%";
+    let popUpImgWidth = popUpImg.naturalWidth;
+    let popUpImgHeight = popUpImg.naturalHeight;
+    if (angle%180 !=0){
+      let temp;
+      temp = popUpImgWidth;
+      popUpImgWidth = popUpImgHeight;
+      popUpImgHeight = temp;
     }
+    console.log(popUpImgWidth);
+    console.log(popUpImgHeight);
+    if (popUpImgWidth/popUpImgHeight>popUpWidth/popUpHeight){
+      popUpImgHeight = popUpWidth/popUpImgWidth*popUpImgHeight;
+      popUpImgWidth = popUpWidth;
+    }else{
+      popUpImgWidth = popUpHeight/popUpImgHeight*popUpImgWidth;
+      popUpImgHeight = popUpHeight;
+    }
+    console.log(popUpImgWidth);
+    console.log(popUpImgHeight);
+    if (angle%180 !=0){
+      let temp;
+      temp = popUpImgWidth;
+      popUpImgWidth = popUpImgHeight;
+      popUpImgHeight = temp;
+    }
+    popUpImg.style.width = `${popUpImgWidth}px`;
+    popUpImg.style.height = `${popUpImgHeight}px`;
+    console.log(popUpWidth);
+    console.log(popUpHeight);
 
     // 表示
     popup.classList.add('is-show');
