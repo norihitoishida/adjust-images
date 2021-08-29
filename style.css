@@ -115,3 +115,7 @@ button {
     margin: auto;
     padding: auto;
 }
+
+textarea {
+    resize: none;
+}
