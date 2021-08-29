@@ -11,6 +11,7 @@
 
 |ver|公開日|変更点|
 |---|---|---|
+|0.0.1|2021/08/29|公開|
 
 ### 参考にさせていただいたサイト
 - [Web アプリケーションからのファイルの使用](https://developer.mozilla.org/ja/docs/Web/API/File/Using_files_from_web_applications)
