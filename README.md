@@ -5,6 +5,7 @@
 - Github Pagesで公開しています([リンク](https://norihitoishida.github.io/adjust-images/))。
 - 入力内容の取得やアクセス解析等は一切行っていません。安心してお使い下さい。
 - ご意見/ご要望はissuesか[作者のTwitter](https://twitter.com/norihitoishida)にお願いします。プルリク等も大歓迎です。
+- Firefoxを使用して下さい。(セキュリティの観点から、通常のChromeではローカルファイルから別のローカルファイルを参照できません)
 
 ### 更新履歴
 
