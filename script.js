@@ -52,7 +52,6 @@ function rotateRight() {
     angle = (angle + 90) % 360;
     targetimg.name = angle;
     targetimg.style.transform = `rotate(${angle}deg)`;
-    //targetcontainer.height = Math.max(targetimg.height, targetimg.width);
 }
 
 function handleFiles(files) {

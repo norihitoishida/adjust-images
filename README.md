@@ -20,6 +20,7 @@
 - [JPEGからPNGへのコンバーター](https://convertio.co/ja/jpeg-png/)
 - [input type="file" multiple で夢の複数ファイルをアップロード](https://kazumich.com/html5multiple.html)
 - [ブラウザでローカル画像をリサイズしてアップロード](https://qiita.com/komakomako/items/8efd4184f6d7cf1363f2)
+- [JavaScriptでモーダル（ポップアップ）を表示させる方法](https://tech-dig.jp/js-modal/)
 
 ### スペシャルサンクス
 - Contributorの皆様
