@@ -149,7 +149,15 @@ function popupImage() {
     popUpImg.src = clickedImg.src;
     
     let angle = Number(clickedImg.name);
-    popUpImg.style.transform = `rotate(${angle}deg)`;
+    popUpImg.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+    popUpImg.style.width = "100%";
+    popUpImg.style.height = "auto";
+    let popUpHeight = popup.getBoundingClientRect().height;
+    let popUpImgHeight = popUpImg.getBoundingClientRect().height;
+    if (popUpImgHeight>popUpHeight){
+      popUpImg.style.width = "auto";
+      popUpImg.style.height = "100%";
+    }
 
     // 表示
     popup.classList.add('is-show');
