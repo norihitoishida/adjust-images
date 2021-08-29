@@ -1,5 +1,4 @@
 ### 画像調整くん
-- 調整中です…
 - 画像をまとめてサイズ変更して整理できるツールです。
 - オープンソース/無料で、許諾不要で使用できます。
 - Github Pagesで公開しています([リンク](https://norihitoishida.github.io/adjust-images/))。

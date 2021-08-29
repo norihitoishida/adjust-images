@@ -88,12 +88,12 @@ function handleFiles(files) {
             return function (e) {
                 aImg.src = e.target.result;
                 if (aImg.height > aImg.width) {
-                    aImg.height = 140;                       
+                    aImg.height = 100;                       
                 } else {
-                    aImg.width = 140;
+                    aImg.width = 100;
                     aImg.style.position = "relative";
                     aImg.style.top = "20%";
-                    aImg.style.transform = "translate(,-50%)";
+                    aImg.style.transform = "translateY(-50%)";
                 }
                 
             };
