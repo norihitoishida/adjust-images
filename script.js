@@ -87,7 +87,15 @@ function handleFiles(files) {
         reader.onload = (function (aImg) {
             return function (e) {
                 aImg.src = e.target.result;
-                aImg.height = 140;
+                if (aImg.height > aImg.width) {
+                    aImg.height = 140;                       
+                } else {
+                    aImg.width = 140;
+                    aImg.style.position = "relative";
+                    aImg.style.top = "20%";
+                    aImg.style.transform = "translate(,-50%)";
+                }
+                
             };
         })(img);
         reader.readAsDataURL(file);
@@ -144,15 +152,16 @@ function popupImage() {
     let popUpImg = document.getElementById("popUpImg");
     popUpImg.src = clickedImg.src;
     
+    let angle = Number(clickedImg.name);
+    popUpImg.style.transform = `rotate(${angle}deg)`;
+
     // 表示
     popup.classList.add('is-show');
     
     // 戻る
     var blackBg = document.getElementById('js-black-bg');
-    var closeBtn = document.getElementById('js-close-btn');
 
     closePopUp(blackBg);
-    closePopUp(closeBtn);
 
     function closePopUp(elem) {
         if (!elem) return;

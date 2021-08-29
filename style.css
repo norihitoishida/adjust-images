@@ -99,20 +99,7 @@ button {
 .popup-inner img {
     width: 100%;
 }
-.close-btn {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    text-align: center;
-    cursor: pointer;
-}
-.close-btn i {
-    font-size: 20px;
-    color: #333;
-}
+
 .black-background {
     position: absolute;
     left: 0;
