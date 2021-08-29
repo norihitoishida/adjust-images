@@ -42,7 +42,7 @@ function rotateLeft() {
     let angle = Number(targetimg.name);
     angle = (angle - 90) % 360;
     targetimg.name = angle;
-    targetimg.style.transform += ` rotate(${angle}deg)`;
+    targetimg.style.transform += `translate(-50%, -50%) rotate(${angle}deg)`;
 }
 
 function rotateRight() {
@@ -51,7 +51,7 @@ function rotateRight() {
     let angle = Number(targetimg.name);
     angle = (angle + 90) % 360;
     targetimg.name = angle;
-    targetimg.style.transform += ` rotate(${angle}deg)`;
+    targetimg.style.transform += `translate(-50%, -50%) rotate(${angle}deg)`;
 }
 
 function handleFiles(files) {
@@ -120,7 +120,7 @@ function handleFiles(files) {
         reader.onload = (function (aImg) {
             return function (e) {
                 aImg.src = e.target.result;
-                aImg.width = 50;
+                aImg.width = 70;
                 aImg.style.position = "absolute";
                 aImg.style.top = "50%";
                 aImg.style.left = "50%";
