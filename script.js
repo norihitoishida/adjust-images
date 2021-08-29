@@ -1,4 +1,6 @@
-let n_drop=0; // ドロップ回数(idをユニークにするために用意)
+// フロントわからなさすぎる
+
+let n_drop = 0; // ドロップ回数(idをユニークにするために用意)
 let uniqueid;
 
 function dragenter(e) {
