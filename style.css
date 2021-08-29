@@ -81,40 +81,39 @@ button {
     opacity: 0;
     visibility: hidden;
     transition: .6s;
-  }
-  .popup.is-show {
+}
+.popup.is-show {
     opacity: 1;
     visibility: visible;
-  }
-  .popup-inner {
+}
+.popup-inner {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    width: 80%;
-    max-width: 600px;
-    padding: 50px;
+    padding: 20px;
     background-color: #fff;
     z-index: 2;
-  }
-  .popup-inner img {
+}
+
+.popup-inner img {
     width: 100%;
-  }
-  .close-btn {
+}
+.close-btn {
     position: absolute;
     right: 0;
     top: 0;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
     text-align: center;
     cursor: pointer;
-  }
-  .close-btn i {
+}
+.close-btn i {
     font-size: 20px;
     color: #333;
-  }
-  .black-background {
+}
+.black-background {
     position: absolute;
     left: 0;
     top: 0;
@@ -123,10 +122,10 @@ button {
     background-color: rgba(0,0,0,.8);
     z-index: 1;
     cursor: pointer;
-  }
+}
 
-  #notice { 
+#notice {
     border: 1px solid rgba(0, 0, 0, 0.5);
     margin: auto;
     padding: auto;
-  }
+}

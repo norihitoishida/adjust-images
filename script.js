@@ -140,14 +140,14 @@ dropbox.addEventListener("dragleave", dragleave);
 function popupImage() {
     uniqueid = this.id.slice(4,);
     let clickedImg = document.getElementById(`img_${uniqueid}`);
-
-    var popUpImg = document.getElementById("popUpImg");
+    let popup = document.getElementById('js-popup');
+    let popUpImg = document.getElementById("popUpImg");
     popUpImg.src = clickedImg.src;
-
-    var popup = document.getElementById('js-popup');
-
+    
+    // 表示
     popup.classList.add('is-show');
-  
+    
+    // 戻る
     var blackBg = document.getElementById('js-black-bg');
     var closeBtn = document.getElementById('js-close-btn');
 
