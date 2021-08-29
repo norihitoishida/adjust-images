@@ -196,7 +196,7 @@ function popupImage() {
     // 表示
     popup.classList.add('is-show');
 
-    closePopUp(popUpImg);
+    closePopUp(popup);
     window.addEventListener("resize", resizepopupimage);
 
     function closePopUp(elem) {
