@@ -91,6 +91,7 @@ function handleFiles(files) {
             };
         })(img);
         reader.readAsDataURL(file);
+        img.addEventListener("click", popupImage);
 
         // 設定ボックス(回転・削除)
         let settingbox = document.createElement("div");
@@ -137,21 +138,26 @@ dropbox.addEventListener("dragleave", dragleave);
 // ============================================== //
 
 function popupImage() {
+    uniqueid = this.id.slice(4,);
+    let clickedImg = document.getElementById(`img_${uniqueid}`);
+
+    var popUpImg = document.getElementById("popUpImg");
+    popUpImg.src = clickedImg.src;
+
     var popup = document.getElementById('js-popup');
-    if(!popup) return;
+
+    popup.classList.add('is-show');
   
     var blackBg = document.getElementById('js-black-bg');
     var closeBtn = document.getElementById('js-close-btn');
-    var showBtn = document.getElementById('js-show-popup');
-  
+
     closePopUp(blackBg);
     closePopUp(closeBtn);
-    closePopUp(showBtn);
+
     function closePopUp(elem) {
-      if(!elem) return;
-      elem.addEventListener('click', function() {
-        popup.classList.toggle('is-show');
-      });
+        if (!elem) return;
+        elem.addEventListener('click', function () {
+            popup.classList.remove('is-show');
+        });
     }
-  }
-  popupImage();
+}
