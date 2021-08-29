@@ -149,38 +149,41 @@ function popupImage() {
     popUpImg.src = clickedImg.src;
     
     let angle = Number(clickedImg.name);
+    //中央に表示、回転する
     popUpImg.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+    //popup要素の高さ幅をピクセルで取得
     let popUpWidth = popup.getBoundingClientRect().width;
     let popUpHeight = popup.getBoundingClientRect().height;
+    //画像の原寸での高さ幅をピクセルで取得
     let popUpImgWidth = popUpImg.naturalWidth;
     let popUpImgHeight = popUpImg.naturalHeight;
+    //±90°回転の場合縦横を入れ替える
     if (angle%180 !=0){
       let temp;
       temp = popUpImgWidth;
       popUpImgWidth = popUpImgHeight;
       popUpImgHeight = temp;
     }
-    console.log(popUpImgWidth);
-    console.log(popUpImgHeight);
+    //縦長か横長かの分岐
     if (popUpImgWidth/popUpImgHeight>popUpWidth/popUpHeight){
+      //横長なので横幅をpopUpに合わせる
       popUpImgHeight = popUpWidth/popUpImgWidth*popUpImgHeight;
       popUpImgWidth = popUpWidth;
     }else{
+      //縦長なので縦幅をpopUpに合わせる
       popUpImgWidth = popUpHeight/popUpImgHeight*popUpImgWidth;
       popUpImgHeight = popUpHeight;
     }
-    console.log(popUpImgWidth);
-    console.log(popUpImgHeight);
+    //±90°回転の場合縦横を入れ替えたのを戻す
     if (angle%180 !=0){
       let temp;
       temp = popUpImgWidth;
       popUpImgWidth = popUpImgHeight;
       popUpImgHeight = temp;
     }
+    //調整した画像サイズを適用
     popUpImg.style.width = `${popUpImgWidth}px`;
     popUpImg.style.height = `${popUpImgHeight}px`;
-    console.log(popUpWidth);
-    console.log(popUpHeight);
 
     // 表示
     popup.classList.add('is-show');
