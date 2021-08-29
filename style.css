@@ -124,3 +124,9 @@ button {
     z-index: 1;
     cursor: pointer;
   }
+
+  #notice { 
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    margin: auto;
+    padding: auto;
+  }
