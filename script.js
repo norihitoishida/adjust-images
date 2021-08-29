@@ -141,6 +141,47 @@ dropbox.addEventListener("dragleave", dragleave);
 
 // ============================================== //
 
+function resizepopupimage(){
+  let clickedImg = document.getElementById(`img_${uniqueid}`);
+  let popup = document.getElementById('js-popup');
+  let popUpImg = document.getElementById("popUpImg");
+  let angle = Number(clickedImg.name);
+
+  //popup要素の高さ幅をピクセルで取得
+  let popUpWidth = popup.getBoundingClientRect().width;
+  let popUpHeight = popup.getBoundingClientRect().height;
+  //画像の原寸での高さ幅をピクセルで取得
+  let popUpImgWidth = popUpImg.naturalWidth;
+  let popUpImgHeight = popUpImg.naturalHeight;
+  //±90°回転の場合縦横を入れ替える
+  if (angle%180 !=0){
+    let temp;
+    temp = popUpImgWidth;
+    popUpImgWidth = popUpImgHeight;
+    popUpImgHeight = temp;
+  }
+  //縦長か横長かの分岐
+  if (popUpImgWidth/popUpImgHeight>popUpWidth/popUpHeight){
+    //横長なので横幅をpopUpに合わせる
+    popUpImgHeight = popUpWidth/popUpImgWidth*popUpImgHeight;
+    popUpImgWidth = popUpWidth;
+  }else{
+    //縦長なので縦幅をpopUpに合わせる
+    popUpImgWidth = popUpHeight/popUpImgHeight*popUpImgWidth;
+    popUpImgHeight = popUpHeight;
+  }
+  //±90°回転の場合縦横を入れ替えたのを戻す
+  if (angle%180 !=0){
+    let temp;
+    temp = popUpImgWidth;
+    popUpImgWidth = popUpImgHeight;
+    popUpImgHeight = temp;
+  }
+  //調整した画像サイズを適用
+  popUpImg.style.width = `${popUpImgWidth}px`;
+  popUpImg.style.height = `${popUpImgHeight}px`;
+}
+
 function popupImage() {
     uniqueid = this.id.slice(4,);
     let clickedImg = document.getElementById(`img_${uniqueid}`);
@@ -151,52 +192,18 @@ function popupImage() {
     let angle = Number(clickedImg.name);
     //中央に表示、回転する
     popUpImg.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
-    //popup要素の高さ幅をピクセルで取得
-    let popUpWidth = popup.getBoundingClientRect().width;
-    let popUpHeight = popup.getBoundingClientRect().height;
-    //画像の原寸での高さ幅をピクセルで取得
-    let popUpImgWidth = popUpImg.naturalWidth;
-    let popUpImgHeight = popUpImg.naturalHeight;
-    //±90°回転の場合縦横を入れ替える
-    if (angle%180 !=0){
-      let temp;
-      temp = popUpImgWidth;
-      popUpImgWidth = popUpImgHeight;
-      popUpImgHeight = temp;
-    }
-    //縦長か横長かの分岐
-    if (popUpImgWidth/popUpImgHeight>popUpWidth/popUpHeight){
-      //横長なので横幅をpopUpに合わせる
-      popUpImgHeight = popUpWidth/popUpImgWidth*popUpImgHeight;
-      popUpImgWidth = popUpWidth;
-    }else{
-      //縦長なので縦幅をpopUpに合わせる
-      popUpImgWidth = popUpHeight/popUpImgHeight*popUpImgWidth;
-      popUpImgHeight = popUpHeight;
-    }
-    //±90°回転の場合縦横を入れ替えたのを戻す
-    if (angle%180 !=0){
-      let temp;
-      temp = popUpImgWidth;
-      popUpImgWidth = popUpImgHeight;
-      popUpImgHeight = temp;
-    }
-    //調整した画像サイズを適用
-    popUpImg.style.width = `${popUpImgWidth}px`;
-    popUpImg.style.height = `${popUpImgHeight}px`;
-
+    resizepopupimage();
     // 表示
     popup.classList.add('is-show');
-    
-    // 戻る
-    var blackBg = document.getElementById('js-black-bg');
 
     closePopUp(popUpImg);
+    window.addEventListener("resize", resizepopupimage);
 
     function closePopUp(elem) {
         if (!elem) return;
         elem.addEventListener('click', function () {
             popup.classList.remove('is-show');
+            window.removeEventListener("resize", resizepopupimage);
         });
     }
 }
