@@ -42,7 +42,7 @@ function rotateLeft() {
     let angle = Number(targetimg.name);
     angle = (angle - 90) % 360;
     targetimg.name = angle;
-    targetimg.style.transform = `rotate(${angle}deg)`;
+    targetimg.style.transform += ` rotate(${angle}deg)`;
 }
 
 function rotateRight() {
@@ -51,7 +51,7 @@ function rotateRight() {
     let angle = Number(targetimg.name);
     angle = (angle + 90) % 360;
     targetimg.name = angle;
-    targetimg.style.transform = `rotate(${angle}deg)`;
+    targetimg.style.transform += ` rotate(${angle}deg)`;
 }
 
 function handleFiles(files) {
@@ -72,34 +72,6 @@ function handleFiles(files) {
         preview.className = "imgPreview";
         preview.id = `imgPreview_${uniqueid}`;
         container.appendChild(preview);
-
-        // imageを読み込み
-        let img = document.createElement("img");
-        img.classList.add("obj");
-        img.id = `img_${uniqueid}`;
-        img.name = 0; //角度
-        let file = files[i];
-        img.file = file;
-        preview.appendChild(img);
-                
-        // 貼り付け  
-        let reader = new FileReader();
-        reader.onload = (function (aImg) {
-            return function (e) {
-                aImg.src = e.target.result;
-                if (aImg.height > aImg.width) {
-                    aImg.height = 100;                       
-                } else {
-                    aImg.width = 100;
-                    aImg.style.position = "relative";
-                    aImg.style.top = "20%";
-                    aImg.style.transform = "translateY(-50%)";
-                }
-                
-            };
-        })(img);
-        reader.readAsDataURL(file);
-        img.addEventListener("click", popupImage);
 
         // 設定ボックス(回転・削除)
         let settingbox = document.createElement("div");
@@ -133,6 +105,34 @@ function handleFiles(files) {
         commentbox.id = `commentBox_${uniqueid}`;
         commentbox.placeholder = "コメント";
         container.appendChild(commentbox);
+
+        // imageを読み込み
+        let img = document.createElement("img");
+        img.classList.add("obj");
+        img.id = `img_${uniqueid}`;
+        img.name = 0; //角度
+        let file = files[i];
+        img.file = file;
+        preview.appendChild(img);
+                
+        // 貼り付け  
+        let reader = new FileReader();
+        reader.onload = (function (aImg) {
+            return function (e) {
+                aImg.src = e.target.result;
+                aImg.width = 50;
+                aImg.style.position = "absolute";
+                aImg.style.top = "50%";
+                aImg.style.left = "50%";
+                aImg.style.transform = "translate(-50%, -50%)";
+                
+            };
+        })(img);
+        reader.readAsDataURL(file);
+        img.addEventListener("click", popupImage);
+        let cl = Event('click');
+        rotatebutton_left.dispatchEvent(cl);
+        rotatebutton_right.dispatchEvent(cl);
     }
 }
 
