@@ -165,7 +165,7 @@ function popupImage() {
     // 戻る
     var blackBg = document.getElementById('js-black-bg');
 
-    closePopUp(blackBg);
+    closePopUp(popUpImg);
 
     function closePopUp(elem) {
         if (!elem) return;
