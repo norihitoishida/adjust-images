@@ -57,7 +57,6 @@ function rotateRight() {
 function handleFiles(files) {
     n_drop++;
     let gallery = document.getElementById("imgGallery");
-
     for (let i = 0; i < files.length; i++) {
         uniqueid = `${n_drop}_${i}`;
 
@@ -130,9 +129,6 @@ function handleFiles(files) {
         })(img);
         reader.readAsDataURL(file);
         img.addEventListener("click", popupImage);
-        let cl = Event('click');
-        rotatebutton_left.dispatchEvent(cl);
-        rotatebutton_right.dispatchEvent(cl);
     }
 }
 
